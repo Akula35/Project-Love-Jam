@@ -6,11 +6,14 @@ function love.load()
 	offsety = 0
 	buttonState = 0.7
 
-	course = love.graphics.newImage("Motegi (JAP).png") -- load race track
+	track = require("TrackMotegiModule")
+
+	course = love.graphics.newImage(track.loadMap()) -- load race track
 	coursex = 0
 	coursey = 0
 
-	courseGrid = { } -- grid of spaces for bike on course
+	courseGrid = track.loadTrack()
+	--[[courseGrid = { } -- grid of spaces for bike on course
 		courseGrid[1] = {}
 			courseGrid[1][1] = {}
 				courseGrid[1][1][1] = 1435
@@ -23,7 +26,7 @@ function love.load()
 			courseGrid[1][3] = {}
 				courseGrid[1][3][1] = 1150
 				courseGrid[1][3][2] = 540
-				courseGrid[1][3][3] = 0
+				courseGrid[1][3][3] = 0]]--
 
 
 
